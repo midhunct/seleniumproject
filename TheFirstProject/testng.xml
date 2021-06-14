@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- <suite name="Suite" thread-count="5" parallel="classes"> -->
+<suite name="Suite">
+	<parameter name="baseurl" value="http://buffalocart.com/demo/erp/login"></parameter>
+	<parameter name="browser" value="chrome"></parameter>
+
+	<!-- <test name="Test"> -->
+	<test name="Test" thread-count="5">
+		<classes>
+
+			<class name="testcases.UrlVerificationTestNG" />
+			<class name="testcases.LoginPageTestNG" />
+			<class name="testcases.ProjectsTestNG"/> 
+			<class name="testcases.TaskPageTestNG"/>
+			<class name="testcases.LogoutPageTestNG"/> 
+			
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
