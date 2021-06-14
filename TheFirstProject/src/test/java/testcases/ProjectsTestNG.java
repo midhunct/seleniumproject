@@ -9,6 +9,7 @@ import utilities.GenericUtility;
 
 import org.testng.annotations.BeforeTest;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -46,17 +47,15 @@ public class ProjectsTestNG {
 
 
 	@Test(priority=1)
-	public void projectMenuVerification() throws InterruptedException {
+	public void projectMenuVerification() throws InterruptedException, IOException {
 
 		utilobj.click1(pageobj.projectsmenu);
 		Thread.sleep(1000);
 
 		String projectmenutitleactual=pageobj.projectsmenu.getText();
-		String projectmenutitleexpected="Projects";	 
-
-		SoftAssert projmenuassert = new SoftAssert();
-		projmenuassert.assertEquals(projectmenutitleactual,projectmenutitleexpected);
-		projmenuassert.assertAll();
+		String projectmenutitleexpected="Projects";	
+		String screenshotFileName="projectmenufailed";
+		utilobj.messageVerification(driver,projectmenutitleactual,projectmenutitleexpected,screenshotFileName);
 
 	}
 

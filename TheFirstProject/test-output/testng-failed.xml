@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="baseurl" value="http://buffalocart.com/demo/erp/login"/>
+  <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.LogoutPageTestNG">
+      <class name="testcases.LeavePageTestNG">
         <methods>
-          <include name="logoutVerification"/>
-          <include name="afterClass"/>
+          <include name="applyLeave"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- testcases.LogoutPageTestNG -->
+      </class> <!-- testcases.LeavePageTestNG -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

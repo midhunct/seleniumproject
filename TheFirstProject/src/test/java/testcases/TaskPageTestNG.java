@@ -1,6 +1,7 @@
 package testcases;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -40,19 +41,18 @@ public class TaskPageTestNG {
 
 
 	@Test(priority=1)
-	public void taskMenuVerification() throws InterruptedException {
+	public void taskMenuVerification() throws InterruptedException, IOException {
 
 
 		utilobj.click1(pageobj.tasksmenu);
 		Thread.sleep(1000);
 
 		String taskmenutitleactual=pageobj.tasksmenu.getText();
-		String taskmenutitleexpected="Tasks";	 
+		String taskmenutitleexpected="Tasks";
+		String screenshotFileName="taskmenufailed";
+		utilobj.messageVerification(driver,taskmenutitleactual,taskmenutitleexpected, screenshotFileName);
 
-		SoftAssert projmenuassert = new SoftAssert();
-		projmenuassert.assertEquals(taskmenutitleactual,taskmenutitleexpected);
-		projmenuassert.assertAll();
-
+		
 	}
 	@Test(priority=2,enabled=false)
 	public void addNewTask() throws InterruptedException

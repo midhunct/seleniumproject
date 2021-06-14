@@ -120,6 +120,8 @@ public class GenericUtility {
 		  }
 	}
 	
+	
+	// can be user for both menu and alert message verification
 	public void messageVerification(WebDriver driver,String actualMessage,String expectedMessage,String screenshotFileName) throws IOException
 	{
 		 

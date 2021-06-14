@@ -18,10 +18,10 @@ public class TaskPage {
     	PageFactory.initElements(driver,this);
     }
     
-    @FindBy(how=How.XPATH, using="//*[@title='Tasks']//span")
+    @FindBy(how=How.XPATH, using="//*[@title='Tasks']")
    	public WebElement tasksmenu;
     
-    @FindBy(how=How.XPATH, using=".//*[@href='#assign_task']")
+    @FindBy(how=How.XPATH, using="//*[@href='#assign_task']")
    	public WebElement newtasksmenu;
     
     @FindBy(how=How.XPATH, using="//*[@name='task_name']")
