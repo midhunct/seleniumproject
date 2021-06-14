@@ -348,6 +348,17 @@ public class TaskPageTestNG {
 
 
 	}
+	
+	@AfterClass
+	public void afterClass() throws InterruptedException {
+
+		driver.navigate().to("http://buffalocart.com/demo/erp/admin/dashboard");
+		Thread.sleep(3000);
+
+
+	}
+
+
 
 
 

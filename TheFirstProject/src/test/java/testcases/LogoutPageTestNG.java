@@ -42,6 +42,9 @@ public class LogoutPageTestNG {
 	      Thread.sleep(4000);
 	 }
 	 
+	
+
+	 
 	 
 	 @Test(priority=1)
 	  public void logoutVerification() throws InterruptedException, IOException {

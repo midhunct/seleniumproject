@@ -13,6 +13,7 @@
 			<class name="testcases.LoginPageTestNG" />
 			<class name="testcases.ProjectsTestNG"/> 
 			<class name="testcases.TaskPageTestNG"/>
+			<class name="testcases.LeavePageTestNG"></class>
 			<class name="testcases.LogoutPageTestNG"/> 
 			
 

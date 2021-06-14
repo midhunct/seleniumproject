@@ -123,8 +123,6 @@ public class GenericUtility {
 	public void messageVerification(WebDriver driver,String actualMessage,String expectedMessage,String screenshotFileName) throws IOException
 	{
 		 
-		 
-		   
 		  SoftAssert objassert=new SoftAssert(); 
 		  
 		  if (actualMessage.equals(expectedMessage)) 
@@ -143,6 +141,9 @@ public class GenericUtility {
 			  objassert.assertAll();
 		  }
 	}
+	
+	
+	
 	
 	public void click(By value) {
 		driver.findElement(value).click();

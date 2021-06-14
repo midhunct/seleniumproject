@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="7" total="16" passed="9">
+<testng-results skipped="0" failed="0" ignored="7" total="17" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="82578" started-at="2021-06-14T11:28:06 IST" finished-at="2021-06-14T11:29:29 IST">
+  <suite name="Suite" duration-ms="76494" started-at="2021-06-14T17:07:03 IST" finished-at="2021-06-14T17:08:20 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="82578" started-at="2021-06-14T11:28:06 IST" finished-at="2021-06-14T11:29:29 IST">
+    <test name="Test" duration-ms="76494" started-at="2021-06-14T17:07:03 IST" finished-at="2021-06-14T17:08:20 IST">
       <class name="testcases.UrlVerificationTestNG">
-        <test-method status="PASS" signature="beforeClass(java.lang.String,java.lang.String)[pri:0, instance:testcases.UrlVerificationTestNG@2de8284b]" name="beforeClass" is-config="true" duration-ms="9827" started-at="2021-06-14T11:28:06 IST" finished-at="2021-06-14T11:28:16 IST">
+        <test-method status="PASS" signature="beforeClass(java.lang.String,java.lang.String)[pri:0, instance:testcases.UrlVerificationTestNG@396e2f39]" name="beforeClass" is-config="true" duration-ms="6450" started-at="2021-06-14T17:07:04 IST" finished-at="2021-06-14T17:07:10 IST">
           <params>
             <param index="0">
               <value>
@@ -23,11 +23,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="urlVerification()[pri:1, instance:testcases.UrlVerificationTestNG@2de8284b]" name="urlVerification" duration-ms="48" started-at="2021-06-14T11:28:16 IST" finished-at="2021-06-14T11:28:16 IST">
+        <test-method status="PASS" signature="urlVerification()[pri:1, instance:testcases.UrlVerificationTestNG@396e2f39]" name="urlVerification" duration-ms="31" started-at="2021-06-14T17:07:10 IST" finished-at="2021-06-14T17:07:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- urlVerification -->
-        <test-method status="PASS" signature="titleVerification(java.lang.String,java.lang.String)[pri:2, instance:testcases.UrlVerificationTestNG@2de8284b]" name="titleVerification" duration-ms="29" started-at="2021-06-14T11:28:16 IST" data-provider="TitleProvider" finished-at="2021-06-14T11:28:16 IST">
+        <test-method status="PASS" signature="titleVerification(java.lang.String,java.lang.String)[pri:2, instance:testcases.UrlVerificationTestNG@396e2f39]" name="titleVerification" duration-ms="0" started-at="2021-06-14T17:07:10 IST" data-provider="TitleProvider" finished-at="2021-06-14T17:07:10 IST">
           <params>
             <param index="0">
               <value>
@@ -43,87 +43,101 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- titleVerification -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.UrlVerificationTestNG@2de8284b]" name="afterClass" is-config="true" duration-ms="901" started-at="2021-06-14T11:28:16 IST" finished-at="2021-06-14T11:28:17 IST">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.UrlVerificationTestNG@396e2f39]" name="afterClass" is-config="true" duration-ms="812" started-at="2021-06-14T17:07:10 IST" finished-at="2021-06-14T17:07:11 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- testcases.UrlVerificationTestNG -->
       <class name="testcases.ProjectsTestNG">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.ProjectsTestNG@782663d3]" name="beforeClass" is-config="true" duration-ms="43" started-at="2021-06-14T11:28:58 IST" finished-at="2021-06-14T11:28:59 IST">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.ProjectsTestNG@1990a65e]" name="beforeClass" is-config="true" duration-ms="18" started-at="2021-06-14T17:07:43 IST" finished-at="2021-06-14T17:07:43 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="projectMenuVerification()[pri:1, instance:testcases.ProjectsTestNG@782663d3]" name="projectMenuVerification" duration-ms="9045" started-at="2021-06-14T11:28:59 IST" finished-at="2021-06-14T11:29:08 IST">
+        <test-method status="PASS" signature="projectMenuVerification()[pri:1, instance:testcases.ProjectsTestNG@1990a65e]" name="projectMenuVerification" duration-ms="8250" started-at="2021-06-14T17:07:43 IST" finished-at="2021-06-14T17:07:51 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- projectMenuVerification -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.ProjectsTestNG@782663d3]" name="afterClass" is-config="true" duration-ms="4812" started-at="2021-06-14T11:29:08 IST" finished-at="2021-06-14T11:29:12 IST">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.ProjectsTestNG@1990a65e]" name="afterClass" is-config="true" duration-ms="4702" started-at="2021-06-14T17:07:51 IST" finished-at="2021-06-14T17:07:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- testcases.ProjectsTestNG -->
       <class name="testcases.LogoutPageTestNG">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.LogoutPageTestNG@64485a47]" name="beforeClass" is-config="true" duration-ms="5689" started-at="2021-06-14T11:29:15 IST" finished-at="2021-06-14T11:29:21 IST">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.LogoutPageTestNG@6ec8211c]" name="beforeClass" is-config="true" duration-ms="5778" started-at="2021-06-14T17:08:06 IST" finished-at="2021-06-14T17:08:12 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="logoutVerification()[pri:1, instance:testcases.LogoutPageTestNG@64485a47]" name="logoutVerification" duration-ms="7363" started-at="2021-06-14T11:29:21 IST" finished-at="2021-06-14T11:29:28 IST">
+        <test-method status="PASS" signature="logoutVerification()[pri:1, instance:testcases.LogoutPageTestNG@6ec8211c]" name="logoutVerification" duration-ms="7035" started-at="2021-06-14T17:08:12 IST" finished-at="2021-06-14T17:08:19 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutVerification -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.LogoutPageTestNG@64485a47]" name="afterClass" is-config="true" duration-ms="896" started-at="2021-06-14T11:29:28 IST" finished-at="2021-06-14T11:29:29 IST">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.LogoutPageTestNG@6ec8211c]" name="afterClass" is-config="true" duration-ms="828" started-at="2021-06-14T17:08:19 IST" finished-at="2021-06-14T17:08:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- testcases.LogoutPageTestNG -->
       <class name="testcases.TaskPageTestNG">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.TaskPageTestNG@1990a65e]" name="beforeClass" is-config="true" duration-ms="19" started-at="2021-06-14T11:29:12 IST" finished-at="2021-06-14T11:29:12 IST">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.TaskPageTestNG@64485a47]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-06-14T17:07:56 IST" finished-at="2021-06-14T17:07:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="taskMenuVerification()[pri:1, instance:testcases.TaskPageTestNG@1990a65e]" name="taskMenuVerification" duration-ms="2442" started-at="2021-06-14T11:29:12 IST" finished-at="2021-06-14T11:29:15 IST">
+        <test-method status="PASS" signature="taskMenuVerification()[pri:1, instance:testcases.TaskPageTestNG@64485a47]" name="taskMenuVerification" duration-ms="2731" started-at="2021-06-14T17:07:56 IST" finished-at="2021-06-14T17:07:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- taskMenuVerification -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.TaskPageTestNG@64485a47]" name="afterClass" is-config="true" duration-ms="4788" started-at="2021-06-14T17:07:59 IST" finished-at="2021-06-14T17:08:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
       </class> <!-- testcases.TaskPageTestNG -->
-      <class name="testcases.LoginPageTestNG">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="beforeClass" is-config="true" duration-ms="14018" started-at="2021-06-14T11:28:17 IST" finished-at="2021-06-14T11:28:31 IST">
+      <class name="testcases.LeavePageTestNG">
+        <test-method status="PASS" signature="leaveMenuVerification()[pri:1, instance:testcases.LeavePageTestNG@25bbf683]" name="leaveMenuVerification" duration-ms="2692" started-at="2021-06-14T17:08:04 IST" finished-at="2021-06-14T17:08:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- leaveMenuVerification -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.LeavePageTestNG@25bbf683]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-06-14T17:08:04 IST" finished-at="2021-06-14T17:08:04 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="gotoLoginPage" is-config="true" duration-ms="2475" started-at="2021-06-14T11:28:31 IST" finished-at="2021-06-14T11:28:34 IST">
+      </class> <!-- testcases.LeavePageTestNG -->
+      <class name="testcases.LoginPageTestNG">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="beforeClass" is-config="true" duration-ms="5966" started-at="2021-06-14T17:07:11 IST" finished-at="2021-06-14T17:07:17 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="gotoLoginPage" is-config="true" duration-ms="2448" started-at="2021-06-14T17:07:17 IST" finished-at="2021-06-14T17:07:19 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- gotoLoginPage -->
-        <test-method status="PASS" signature="invalidUsernameValidPassword()[pri:1, instance:testcases.LoginPageTestNG@4fb64261]" name="invalidUsernameValidPassword" duration-ms="1387" started-at="2021-06-14T11:28:34 IST" finished-at="2021-06-14T11:28:35 IST">
+        <test-method status="PASS" signature="invalidUsernameValidPassword()[pri:1, instance:testcases.LoginPageTestNG@42607a4f]" name="invalidUsernameValidPassword" duration-ms="878" started-at="2021-06-14T17:07:19 IST" finished-at="2021-06-14T17:07:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invalidUsernameValidPassword -->
-        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="gotoLoginPage" is-config="true" duration-ms="3450" started-at="2021-06-14T11:28:35 IST" finished-at="2021-06-14T11:28:39 IST">
+        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="gotoLoginPage" is-config="true" duration-ms="2282" started-at="2021-06-14T17:07:20 IST" finished-at="2021-06-14T17:07:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- gotoLoginPage -->
-        <test-method status="PASS" signature="validUsernameInvalidPassword()[pri:2, instance:testcases.LoginPageTestNG@4fb64261]" name="validUsernameInvalidPassword" duration-ms="1021" started-at="2021-06-14T11:28:39 IST" finished-at="2021-06-14T11:28:40 IST">
+        <test-method status="PASS" signature="validUsernameInvalidPassword()[pri:2, instance:testcases.LoginPageTestNG@42607a4f]" name="validUsernameInvalidPassword" duration-ms="854" started-at="2021-06-14T17:07:22 IST" finished-at="2021-06-14T17:07:23 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUsernameInvalidPassword -->
-        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="gotoLoginPage" is-config="true" duration-ms="2283" started-at="2021-06-14T11:28:40 IST" finished-at="2021-06-14T11:28:42 IST">
+        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="gotoLoginPage" is-config="true" duration-ms="2371" started-at="2021-06-14T17:07:23 IST" finished-at="2021-06-14T17:07:26 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- gotoLoginPage -->
-        <test-method status="PASS" signature="invalidUsernameInvalidPassword()[pri:3, instance:testcases.LoginPageTestNG@4fb64261]" name="invalidUsernameInvalidPassword" duration-ms="3041" started-at="2021-06-14T11:28:42 IST" finished-at="2021-06-14T11:28:45 IST">
+        <test-method status="PASS" signature="invalidUsernameInvalidPassword()[pri:3, instance:testcases.LoginPageTestNG@42607a4f]" name="invalidUsernameInvalidPassword" duration-ms="2939" started-at="2021-06-14T17:07:26 IST" finished-at="2021-06-14T17:07:29 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invalidUsernameInvalidPassword -->
-        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="gotoLoginPage" is-config="true" duration-ms="2434" started-at="2021-06-14T11:28:45 IST" finished-at="2021-06-14T11:28:47 IST">
+        <test-method status="PASS" signature="gotoLoginPage()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="gotoLoginPage" is-config="true" duration-ms="2318" started-at="2021-06-14T17:07:29 IST" finished-at="2021-06-14T17:07:31 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- gotoLoginPage -->
-        <test-method status="PASS" signature="validUsernameValidPassword()[pri:4, instance:testcases.LoginPageTestNG@4fb64261]" name="validUsernameValidPassword" duration-ms="11180" started-at="2021-06-14T11:28:47 IST" finished-at="2021-06-14T11:28:58 IST">
+        <test-method status="PASS" signature="validUsernameValidPassword()[pri:4, instance:testcases.LoginPageTestNG@42607a4f]" name="validUsernameValidPassword" duration-ms="12241" started-at="2021-06-14T17:07:31 IST" finished-at="2021-06-14T17:07:43 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUsernameValidPassword -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.LoginPageTestNG@4fb64261]" name="afterClass" is-config="true" duration-ms="7" started-at="2021-06-14T11:28:58 IST" finished-at="2021-06-14T11:28:58 IST">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.LoginPageTestNG@42607a4f]" name="afterClass" is-config="true" duration-ms="2" started-at="2021-06-14T17:07:43 IST" finished-at="2021-06-14T17:07:43 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
