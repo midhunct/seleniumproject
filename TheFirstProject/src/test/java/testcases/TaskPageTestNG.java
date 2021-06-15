@@ -54,7 +54,7 @@ public class TaskPageTestNG {
 
 		
 	}
-	@Test(priority=2,enabled=false)
+	@Test(priority=2)
 	public void addNewTask() throws InterruptedException
 	{
 
@@ -202,7 +202,7 @@ public class TaskPageTestNG {
 	}
 
 
-	@Test(priority=3,enabled=false)
+	@Test(priority=3)
 	public void importTaskFile() throws InterruptedException {
 
 		utilobj.click1(pageobj.tasksmenu);
@@ -231,7 +231,7 @@ public class TaskPageTestNG {
 
 	}
 
-	@Test(priority=4,enabled=false)
+	@Test(priority=4)
 	public void downloadSampleFile() throws InterruptedException {
 
 
@@ -262,7 +262,7 @@ public class TaskPageTestNG {
 	}
 
 
-	@Test(priority=5,enabled=false)
+	@Test(priority=5)
 	public void deleteTask() throws InterruptedException
 	{
 

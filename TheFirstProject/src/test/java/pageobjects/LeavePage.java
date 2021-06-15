@@ -31,6 +31,28 @@ public class LeavePage {
     @FindBy(how=How.XPATH, using="//select[@name='leave_category_id']")
    	public WebElement selectleavecategory;
     
+    @FindBy(how=How.XPATH, using="  //input[@name='leave_type' and @value='multiple_days']")
+    public WebElement durationradiobtn;
+    
+    @FindBy(how=How.NAME, using="multiple_days_start_date")
+    public WebElement startdate;
+    
+    
+    @FindBy(how=How.NAME,using="multiple_days_end_date")
+    public WebElement enddate;
+    
+    @FindBy(how=How.XPATH,using="//textarea[@id='present']")
+    public WebElement reason;
+    
+    
+    @FindBy(how=How.XPATH,using="//*[@class='dz-default dz-message']")
+    public WebElement attachment;
+    
+ 
+    @FindBy(how=How.XPATH,using=" //button[@id='file-save-button']")
+    public WebElement submitbtn;
+    
+    
    // @FindBy(how=How.XPATH, using="//*[@id='myModal_extra_lg']/div/div/div[1]")
     //public WebElement applyleaveelement;
    

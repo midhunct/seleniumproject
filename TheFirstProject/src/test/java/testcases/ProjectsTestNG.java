@@ -60,7 +60,7 @@ public class ProjectsTestNG {
 	}
 
 
-	@Test(priority=2,enabled=false)
+	@Test(priority=2)
 	public void addNewProject() throws InterruptedException
 	{
 
@@ -190,7 +190,7 @@ public class ProjectsTestNG {
 
 	}
 
-	@Test(priority=3,enabled=false)
+	@Test(priority=3)
 	public void verifyProjectInAllProjectsMenu() throws InterruptedException
 	{
 
@@ -235,7 +235,7 @@ public class ProjectsTestNG {
 	}
 
 
-	@Test(priority=3,enabled=false)
+	@Test(priority=3)
 	public void projectChangeStatusCheck() throws InterruptedException
 	{
 		
