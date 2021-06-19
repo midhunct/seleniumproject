@@ -31,10 +31,10 @@ public class LeavePage {
     @FindBy(how=How.XPATH, using="//select[@name='leave_category_id']")
    	public WebElement selectleavecategory;
     
-    @FindBy(how=How.XPATH, using="  //input[@name='leave_type' and @value='multiple_days']")
+    @FindBy(how=How.XPATH, using="//input[@name='leave_type' and @value='single_day']")
     public WebElement durationradiobtn;
     
-    @FindBy(how=How.NAME, using="multiple_days_start_date")
+    @FindBy(how=How.NAME, using="single_day_start_date")
     public WebElement startdate;
     
     

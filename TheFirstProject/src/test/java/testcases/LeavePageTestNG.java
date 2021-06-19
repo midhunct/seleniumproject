@@ -88,6 +88,7 @@ public class LeavePageTestNG {
 		 
 		//leave category
 		//select users 
+		//vishnu 
         int uservalue=2; 
 		selectutilobj.selectByIndex(pageobj.selectusers,uservalue);
 		Thread.sleep(3000);
@@ -95,21 +96,21 @@ public class LeavePageTestNG {
 		//2 sick leave
 		int categoryvalue=2;
 		selectutilobj.selectByIndex(pageobj.selectleavecategory,categoryvalue);
-		Thread.sleep(1000);
+	
 		
 		//duration
 		clickutilobj.clickWebElement(pageobj.durationradiobtn);
-	
+		Thread.sleep(1000);
 		
 		//start date
-		String startDate="2021-06-17";
+		String startDate="2021-06-19";
 		genutilobj.enterValueInTextbox(pageobj.startdate,startDate);
 		
 		
 		//end date
 	
-		String endDate="2021-06-16";
-		genutilobj.enterValueInTextbox(pageobj.enddate,endDate);
+		//String endDate="2021-06-18";
+		//genutilobj.enterValueInTextbox(pageobj.enddate,endDate);
       
 		
 		//reason
@@ -123,6 +124,7 @@ public class LeavePageTestNG {
 		pageobj.attachment.click();
 		Thread.sleep(2000);
 		
+		//robot class used for browsing file
 		robotutilobj.robotUploadFile(filePath);
 		
 		Thread.sleep(2000);
