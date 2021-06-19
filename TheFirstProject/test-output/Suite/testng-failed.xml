@@ -5,13 +5,12 @@
   <parameter name="browser" value="chrome"/>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.ProjectsTestNG">
+      <class name="testcases.LeavePageTestNG">
         <methods>
-          <include name="projectChangeStatusCheck"/>
+          <include name="applyLeave"/>
           <include name="beforeClass"/>
-          <include name="afterClass"/>
         </methods>
-      </class> <!-- testcases.ProjectsTestNG -->
+      </class> <!-- testcases.LeavePageTestNG -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
