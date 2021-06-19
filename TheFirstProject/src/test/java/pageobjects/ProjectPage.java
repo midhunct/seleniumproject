@@ -89,7 +89,7 @@ public class ProjectPage {
     @FindBy(how=How.XPATH,using=" //a[contains(text(),'All Projects')]") 
     public WebElement allprojectsmenu;
     
-    @FindBy(how=How.XPATH,using="//*[@id='DataTables_next']//a") 
+    @FindBy(how=How.XPATH,using="//a[contains(text(),'Next')]") 
     public WebElement pagenextallprojects;
     
     //thead's tr th
@@ -102,13 +102,17 @@ public class ProjectPage {
     
    
     
-  // //*[contains(@id,'table_')]
+ 
     @FindBy(how=How.XPATH,using="//tr[@role='row' and (@class='odd' or @class='even')]") 
     public List<WebElement> nexttablerow;
     
    
   //----------------------table---------------------------
     
+    //toast-progress
+    //toast-message
+    @FindBy(how=How.CLASS_NAME,using="//div[@class='toast-progress']")
+    public WebElement statuchangemeesage;
     
     
     

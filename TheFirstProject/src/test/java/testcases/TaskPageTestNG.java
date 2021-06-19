@@ -19,6 +19,7 @@ import org.testng.asserts.SoftAssert;
 import pageobjects.LoginPage;
 import pageobjects.TaskPage;
 import utilities.GenericUtility;
+import utilities.ScreenshotUtility;
 
 public class TaskPageTestNG {
 
@@ -47,15 +48,31 @@ public class TaskPageTestNG {
 		utilobj.click1(pageobj.tasksmenu);
 		Thread.sleep(1000);
 
-		String taskmenutitleactual=pageobj.tasksmenu.getText();
-		String taskmenutitleexpected="Tasks";
+		String taskmenuactual=pageobj.tasksmenu.getText();
+		String taskmenuexpected="Tasks";
 		String screenshotFileName="taskmenufailed";
-		utilobj.messageVerification(driver,taskmenutitleactual,taskmenutitleexpected, screenshotFileName);
+		utilobj.messageVerification(driver,taskmenuactual,taskmenuexpected,screenshotFileName);
 
 		
 	}
+	
 	@Test(priority=2)
-	public void addNewTask() throws InterruptedException
+	public void taskMenuTitleVerification() throws InterruptedException, IOException {
+
+		utilobj.click1(pageobj.tasksmenu);
+		Thread.sleep(1000);
+
+		
+		String expectedTitle="All Task";	
+		String screenshotFileName="taskmenutitlefailed";
+		utilobj.titleVerification(driver, expectedTitle, screenshotFileName);
+
+	}
+
+	
+	
+	@Test(priority=3)
+	public void addNewTask() throws InterruptedException, IOException
 	{
 
 		utilobj.click1(pageobj.newtasksmenu);
@@ -72,7 +89,7 @@ public class TaskPageTestNG {
 		//opportunities
 		//leads
 		//bug
-		//sub_task
+		//sub_task(Tasks)
 		String relatedtotype="sub_task";
 		utilobj.selectByValue(pageobj.relatedtoselect,relatedtotype);
 
@@ -175,12 +192,12 @@ public class TaskPageTestNG {
 		String billableonexpectedvalue="Yes";
 		utilobj.click1(pageobj.billable);
 		Thread.sleep(3000);
-		String  billableonactualvalue=pageobj.billableon.getText();
-
-		SoftAssert billableassert=new SoftAssert();
-		billableassert.assertEquals(billableonactualvalue,billableonexpectedvalue);
-		billableassert.assertAll();
-		Thread.sleep(2000);
+//		String  billableonactualvalue=pageobj.billableon.getText();
+//
+//		SoftAssert billableassert=new SoftAssert();
+//		billableassert.assertEquals(billableonactualvalue,billableonexpectedvalue);
+//		billableassert.assertAll();
+//		Thread.sleep(2000);
 
 		//assigned to radio button
 		utilobj.click1(pageobj.assignedto);
@@ -196,20 +213,26 @@ public class TaskPageTestNG {
 
 		//save
 		utilobj.click1(pageobj.save);
-
-		System.out.println("successssssssssssss");
+		
+		String actualUrl=driver.getCurrentUrl();
+		System.out.println("current url>> "+ actualUrl);		
+		String expectedUrl="http://buffalocart.com/demo/erp/admin/tasks/view_task_details/";
+		String screenshotFileName="addnewtaskfailed";
+		utilobj.urlVerificationContains(driver, expectedUrl, screenshotFileName);
+		Thread.sleep(3000); 
 
 	}
 
 
-	@Test(priority=3)
-	public void importTaskFile() throws InterruptedException {
+	@Test(priority=4)
+	public void importTaskFile() throws InterruptedException, IOException {
 
 		utilobj.click1(pageobj.tasksmenu);
 		Thread.sleep(1000);
 
 		utilobj.click1(pageobj.importmenu);
-		String filePath=" C:\\Users\\admin\\Downloads\\tasks_sample_midhun.xlsx";
+		//String filePath=" C:\\Users\\admin\\Downloads\\tasks_sample_midhun.xlsx";
+		String filePath="C:\\Users\\admin\\git\\newprojectrepo\\TheFirstProject\\src\\test\\resources\\uploadedfiles\\tasks_sample_midhun.xlsx";
 		utilobj.enterValueInTextbox(pageobj.importmenuChooseFile,filePath);
 
 		utilobj.click1(pageobj.importmenuAssignedToEveryone);
@@ -221,18 +244,36 @@ public class TaskPageTestNG {
 		utilobj.click1(pageobj.importmenuUploadBtn);
 		Thread.sleep(2000);
 
-		boolean b=false;
+		boolean newtaskstatus=false;
 		if(driver.getPageSource().contains("My New Task"))
 		{
-			b=true;
+			 newtaskstatus=true;
 		}
-		Assert.assertTrue(b);
+		
+		
+		SoftAssert objassert=new SoftAssert();
+		if(newtaskstatus==true)
+		{	
+			 objassert.assertTrue(true);
+			 objassert.assertAll();
+			
+		}
+		else
+		{
+			 String screenshotFileName="importtaskfailed";
+			 ScreenshotUtility scrobj=new ScreenshotUtility(driver);
+			 scrobj.takeScreenshot(screenshotFileName);
+
+			 objassert.assertTrue(false);
+			 objassert.assertAll();
+		}
+
 
 
 	}
 
-	@Test(priority=4)
-	public void downloadSampleFile() throws InterruptedException {
+	@Test(priority=5)
+	public void downloadSampleFile() throws InterruptedException, IOException {
 
 
 
@@ -252,17 +293,34 @@ public class TaskPageTestNG {
 			{
 				System.out.println(file.getName() +"File is downloaded");
 				filefound=true;
+				
 				break;
 			}
 		}
-		if(filefound==false)
-			System.out.println("File not found");
-
+		
+		
+		SoftAssert objassert=new SoftAssert();
+		if(filefound==true)
+		{	
+			 objassert.assertTrue(true);
+			 objassert.assertAll();
+			
+		}
+		else
+		{
+			 String screenshotFileName="downloadsamplefilefailed";
+			 ScreenshotUtility scrobj=new ScreenshotUtility(driver);
+			 scrobj.takeScreenshot(screenshotFileName);
+			
+			 System.out.println("File not found");
+			 objassert.assertTrue(false);
+			 objassert.assertAll();
+		}
 
 	}
 
-
-	@Test(priority=5)
+    //deleting imported task  my task
+	@Test(priority=6)
 	public void deleteTask() throws InterruptedException
 	{
 
@@ -341,6 +399,17 @@ public class TaskPageTestNG {
 
 
 			//utilobj.jsScrollDownToBottom(driver);
+			
+			
+			
+			WebElement clknext=driver.findElement(By.xpath("//*[@id='DataTables_next']"));
+			String actualval=clknext.getAttribute("class");
+			String expectval="paginate_button next disabled";	
+			if(actualval.equals(expectval))
+			{
+				break;
+			}
+			
 		}
 		while(pageobj.pagenextasks.isDisplayed());
 

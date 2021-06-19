@@ -5,7 +5,11 @@ import org.testng.asserts.SoftAssert;
 
 import pageobjects.LoginPage;
 import pageobjects.ProjectPage;
+import utilities.ActionClassUtility;
+import utilities.ClickUtility;
 import utilities.GenericUtility;
+import utilities.ScreenshotUtility;
+import utilities.SearchPaginationUtility;
 
 import org.testng.annotations.BeforeTest;
 
@@ -34,7 +38,9 @@ public class ProjectsTestNG {
 	WebDriver driver;
 	GenericUtility utilobj;
 	ProjectPage pageobj;
-
+    ActionClassUtility actionutilobj;
+    SearchPaginationUtility searchpagutilobj;
+    ClickUtility clickutilobj;
 
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
@@ -42,7 +48,9 @@ public class ProjectsTestNG {
 		utilobj=new GenericUtility();
 		driver=DriverClass.getDriver();	
 		pageobj=new ProjectPage(driver);
-
+		actionutilobj=new ActionClassUtility(driver);
+		searchpagutilobj=new SearchPaginationUtility(driver);
+		clickutilobj=new ClickUtility(driver);
 	}
 
 
@@ -52,15 +60,30 @@ public class ProjectsTestNG {
 		utilobj.click1(pageobj.projectsmenu);
 		Thread.sleep(1000);
 
-		String projectmenutitleactual=pageobj.projectsmenu.getText();
-		String projectmenutitleexpected="Projects";	
+		String projectmenuactual=pageobj.projectsmenu.getText();
+		String projectmenuexpected="Projects";	
 		String screenshotFileName="projectmenufailed";
-		utilobj.messageVerification(driver,projectmenutitleactual,projectmenutitleexpected,screenshotFileName);
+		utilobj.messageVerification(driver,projectmenuactual,projectmenuexpected,screenshotFileName);
+
+	}
+	
+	
+	
+	@Test(priority=2)
+	public void projectMenuTitleVerification() throws InterruptedException, IOException {
+
+		utilobj.click1(pageobj.projectsmenu);
+		Thread.sleep(1000);
+
+		
+		String expectedTitle="All Project";	
+		String screenshotFileName="projectmenutitlefailed";
+		utilobj.titleVerification(driver, expectedTitle, screenshotFileName);
 
 	}
 
 
-	@Test(priority=2)
+	@Test(priority=3)
 	public void addNewProject() throws InterruptedException
 	{
 
@@ -82,7 +105,7 @@ public class ProjectsTestNG {
 		utilobj.selectByVisibleText(pageobj.projectclientselect,clientname);
 
 		//move progress element
-		utilobj.dragAndDropByFun(pageobj.progressmovebar, driver,18,0);
+		actionutilobj.dragAndDropByFun(pageobj.progressmovebar,18,0);
 		Thread.sleep(2000);
 
 		String progressDisplayValueActual=pageobj.progressbardisplayvalue.getText();
@@ -185,18 +208,56 @@ public class ProjectsTestNG {
 		utilobj.click1(pageobj.save);
 
 		System.out.println("successssssssssssss");
-
+		Thread.sleep(4000);
 
 
 	}
 
-	@Test(priority=3)
-	public void verifyProjectInAllProjectsMenu() throws InterruptedException
+	@Test(priority=4)
+	public void verifyProjectInAllProjectsMenu() throws InterruptedException, IOException
 	{
 
+		utilobj.click1(pageobj.projectsmenu);
+		Thread.sleep(1000);
+		
 		utilobj.click1(pageobj.allprojectsmenu);
 		Thread.sleep(4000);
-		boolean found=false;
+		
+		String searchKey="SampleProject006";
+		//boolean found=searchpagutilobj.contentSearchPagination(pageobj.pagenextallprojects,searchKey);
+		
+		WebElement  webtabletbody=driver.findElement(By.xpath("//table[@id='DataTables']//tbody"));
+		boolean found=searchpagutilobj.contentSearchPagination2(pageobj.pagenextallprojects, webtabletbody,searchKey);
+				
+        SoftAssert assertprojectcheck=new SoftAssert();
+		if(found==true)
+		{
+			assertprojectcheck.assertTrue(true);
+			assertprojectcheck.assertAll();
+		}
+		else
+		{
+			String screenshotFileName="verifyprojectsinallprojectsfailed";
+			ScreenshotUtility scrobj=new ScreenshotUtility(driver);
+			scrobj.takeScreenshot(screenshotFileName);
+			 
+			assertprojectcheck.assertTrue(false);
+			assertprojectcheck.assertAll();
+		}
+   
+
+	}
+
+
+	@Test(priority=5)
+	public void projectChangeStatusCheck() throws InterruptedException, IOException
+	{
+		String projectname="SampleProject006";
+		String expectedstatusmsg="On Hold";
+		
+		utilobj.click1(pageobj.allprojectsmenu);
+		Thread.sleep(2000);
+      
 
 		int firstpage=1;
 
@@ -213,33 +274,88 @@ public class ProjectsTestNG {
 			}
 
 			Thread.sleep(4000);
+			WebElement webtable=driver.findElement(By.xpath("//table[@id='DataTables']//tbody"));
+			List<WebElement> rows=webtable.findElements(By.tagName("tr"));
 
-			if(driver.getPageSource().contains("SampleProject006"))
+
+			int tableRowCount=rows.size();
+			System.out.println("RowSize>> "+tableRowCount);
+			int foundrow;
+			boolean found=false;
+			// utilobj.jsScrollDownToBottom(driver);
+
+		   
+
+			//changing the status of project to hold
+			for(int i=0;i<tableRowCount;i++)
 			{
-				found=true;
-				System.out.println("Project found");
-				break;
+				
+				List<WebElement> columns=rows.get(i).findElements(By.tagName("td"));
+				
+				int columnsCount=columns.size();
+
+				for(int j=0;j<columnsCount;j++)
+				{
+
+					String cellText=columns.get(j).getText();
+
+					if(cellText.contains(projectname))
+					{
+						found=true;
+
+						foundrow =i+1;
+						System.out.println("Status Before Change:>>>> "+columns.get(5).getText());
+						columns.get(5).click();
+						Thread.sleep(1000);
+						//li[4]=On Hold
+						String xpth="//table[@id='DataTables']//tbody//"+"tr["+foundrow+"]//"+"td[6]//"+"div//ul//li[4]//a";
+						driver.findElement(By.xpath(xpth)).click();
+						Thread.sleep(4000);
+						break;
+					}
+
+				}
+				System.out.println();
 			}
 
 
-			utilobj.jsScrollDownToBottom(driver);
+			if(found==true)
+			{
+				
+				break;
+			}
+
+			
+			//utilobj.jsScrollDownToBottom(driver);
+			
+			//check the absence of next page element to identify last page
+			//here the next page is disabled at last page
+			WebElement clknext=driver.findElement(By.xpath("//*[@id='DataTables_next']"));
+			String actualval=clknext.getAttribute("class");
+			String expectval="paginate_button next disabled";	
+			if(actualval.equals(expectval))
+			{
+				break;
+			}
+			
+			
 		}
 		while(pageobj.pagenextallprojects.isDisplayed());
-
-
-		SoftAssert assertprojectcheck=new SoftAssert();
-		assertprojectcheck.assertTrue(found);
-		assertprojectcheck.assertAll();
+		
+		Thread.sleep(4000);
 
 
 	}
-
-
-	@Test(priority=3)
-	public void projectChangeStatusCheck() throws InterruptedException
+	
+	@Test(priority=6)
+	public void statusChangeVerify() throws InterruptedException, IOException
 	{
 		
-		utilobj.click1(pageobj.allprojectsmenu);
+		String projectname="SampleProject006";
+		String expectedstatusmsg="On Hold";
+		System.out.println("inside statusChangeVerify");
+		
+		utilobj.click1(pageobj.projectsmenu);
 		Thread.sleep(2000);
 
 
@@ -263,17 +379,17 @@ public class ProjectsTestNG {
 
 
 			int tableRowCount=rows.size();
-			System.out.println("RowSize>> "+tableRowCount);
-			int mrow;
+			int foundrow;
 			boolean found=false;
 			// utilobj.jsScrollDownToBottom(driver);
 
-			String projectname="SampleProject006";
 
 			//changing the status of project to hold
 			for(int i=0;i<tableRowCount;i++)
 			{
+				
 				List<WebElement> columns=rows.get(i).findElements(By.tagName("td"));
+				
 				int columnsCount=columns.size();
 
 				for(int j=0;j<columnsCount;j++)
@@ -285,13 +401,11 @@ public class ProjectsTestNG {
 					{
 						found=true;
 
-						mrow =i+1;
-						System.out.println("Status Before Change:>>>> "+columns.get(5).getText());
-						columns.get(5).click();
-						Thread.sleep(1000);
-						//li[4]=On Hold
-						String xpth="//table[@id='DataTables']//tbody//"+"tr["+mrow+"]//"+"td[6]//"+"div//ul//li[4]//a";
-						driver.findElement(By.xpath(xpth)).click();
+						foundrow =i+1;
+						System.out.println("Current Status >>>> "+columns.get(5).getText());
+						String actualstatusmsg=columns.get(5).getText();
+						String screenshotFileName="projectchangestatusfailed";
+						utilobj.messageVerificationContains(driver,actualstatusmsg,expectedstatusmsg, screenshotFileName);
 						Thread.sleep(4000);
 						break;
 					}
@@ -306,14 +420,23 @@ public class ProjectsTestNG {
 				break;
 			}
 
-
+			
 			//utilobj.jsScrollDownToBottom(driver);
+			
+			//check the absence of next page element to identify last page
+			//here the next page is disabled at last page
+			WebElement clknext=driver.findElement(By.xpath("//*[@id='DataTables_next']"));
+			String actualval=clknext.getAttribute("class");
+			String expectval="paginate_button next disabled";	
+			if(actualval.equals(expectval))
+			{
+				break;
+			}
+			
+			
 		}
 		while(pageobj.pagenextallprojects.isDisplayed());
-
-		Thread.sleep(4000);
-
-
+			
 	}
 
 

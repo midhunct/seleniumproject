@@ -42,6 +42,8 @@ public class LeavePageTestNG {
 		
 
 	}
+	
+	
 
 	@Test(priority=1)
 	public void leaveMenuVerification() throws InterruptedException, IOException {
@@ -59,8 +61,22 @@ public class LeavePageTestNG {
 
 
 	}
-
+	
 	@Test(priority=2)
+	public void leaveMenuTitleVerification() throws InterruptedException, IOException {
+
+		genutilobj.click1(pageobj.leavemenu);
+		Thread.sleep(1000);
+
+		
+		String expectedTitle="Leave Management";	
+		String screenshotFileName="leavemenutitlefailed";
+		genutilobj.titleVerification(driver, expectedTitle, screenshotFileName);
+
+	}
+	
+
+	@Test(priority=3)
 	public void applyLeave() throws InterruptedException, AWTException
 	{
 		

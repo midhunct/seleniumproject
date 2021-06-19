@@ -94,6 +94,31 @@ public class GenericUtility {
 			  objassert.assertAll();
 		  }
 	}
+	
+	public void urlVerificationContains(WebDriver driver,String expectedUrl,String screenshotFileName) throws IOException
+	{
+		 
+		 
+		  String actualUrl=driver.getCurrentUrl(); 
+		  SoftAssert objassert=new SoftAssert(); 
+		  
+		  if (actualUrl.contains(expectedUrl)) 
+		  {
+			  System.out.println("Successs url");
+			  objassert.assertTrue(true);
+			  objassert.assertAll();
+			  
+		  } 
+		  else 
+		  {
+			  
+			  ScreenshotUtility scrobj=new ScreenshotUtility(driver);
+			  scrobj.takeScreenshot(screenshotFileName);
+			  
+			  objassert.assertTrue(false);
+			  objassert.assertAll();
+		  }
+	}
    
 	
 	public void titleVerification(WebDriver driver,String expectedTitle,String screenshotFileName) throws IOException
@@ -101,6 +126,7 @@ public class GenericUtility {
 		 
 		 
 		  String actualTitle=driver.getTitle(); 
+		  System.out.println("actual title>> "+actualTitle);
 		  SoftAssert objassert=new SoftAssert(); 
 		  
 		  if (actualTitle.equals(expectedTitle)) 
@@ -143,6 +169,30 @@ public class GenericUtility {
 			  objassert.assertAll();
 		  }
 	}
+	
+	// can be user for both menu and alert message verification
+		public void messageVerificationContains(WebDriver driver,String actualMessage,String expectedMessage,String screenshotFileName) throws IOException
+		{
+			 
+			  SoftAssert objassert=new SoftAssert(); 
+			  
+			  if (actualMessage.contains(expectedMessage)) 
+			  {
+				  System.out.println("success");
+				  objassert.assertTrue(true);
+				  objassert.assertAll();
+				  
+			  } 
+			  else 
+			  {
+				  
+				  ScreenshotUtility scrobj=new ScreenshotUtility(driver);
+				  scrobj.takeScreenshot(screenshotFileName);
+				  
+				  objassert.assertTrue(false);
+				  objassert.assertAll();
+			  }
+		}
 	
 	
 	
